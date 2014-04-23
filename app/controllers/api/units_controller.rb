@@ -4,10 +4,7 @@ class Api::UnitsController < ApplicationController
   def index
     @units = Unit.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @units }
-    end
+    render '/api/units/index'
   end
 
   # GET /units/1
@@ -15,10 +12,7 @@ class Api::UnitsController < ApplicationController
   def show
     @unit = Unit.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @unit }
-    end
+    render '/api/units/show'
   end
 
   # GET /units/new

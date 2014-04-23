@@ -5,21 +5,14 @@ class Api::BuildersController < ApplicationController
   def index
     @builders = Builder.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @builders }
-    end
+    render '/api/builders/index'
   end
 
   # GET /builds/1
   # GET /builds/1.json
   def show
     @builder = Builder.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @builder }
-    end
+    render '/api/builders/show'
   end
 
   # GET /builds/new

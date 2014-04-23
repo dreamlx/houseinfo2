@@ -11,6 +11,10 @@ end
 group :production do
   gem 'pg'
 end
+# Gemfile
+gem 'rabl'
+# Also add either `oj` or `yajl-ruby` as the JSON parser
+gem 'oj'
 
 gem "heroku"
 
