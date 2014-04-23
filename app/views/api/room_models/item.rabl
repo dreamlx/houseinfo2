@@ -1,0 +1,1 @@
+attributes :id, :title, :desc, :rooms

@@ -4,11 +4,7 @@ class Api::RoomModelsController < ApplicationController
   respond_to :json
   def index
     @room_models = RoomModel.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @room_models }
-    end
+    render '/api/room_models/index'
   end
 
   # GET /units/1
@@ -16,10 +12,7 @@ class Api::RoomModelsController < ApplicationController
   def show
     @room_model = RoomModel.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @room_model }
-    end
+    render '/api/room_models/show'
   end
 
   # GET /units/new
