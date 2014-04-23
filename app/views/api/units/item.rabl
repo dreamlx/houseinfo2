@@ -1,1 +1,1 @@
-attributes :id, :area, :builder, :room_no, :unit_model
+attributes :id, :title, :desc

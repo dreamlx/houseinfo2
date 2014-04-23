@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140423013652) do
+ActiveRecord::Schema.define(:version => 20140423165449) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20140423013652) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-  create_table "builders", :force => true do |t|
+  create_table "buildings", :force => true do |t|
     t.string   "code"
     t.string   "title"
     t.text     "desc"
@@ -54,20 +54,29 @@ ActiveRecord::Schema.define(:version => 20140423013652) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "unit_models", :force => true do |t|
+  create_table "room_models", :force => true do |t|
     t.string   "title"
     t.text     "desc"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "units", :force => true do |t|
-    t.integer  "builder_id"
-    t.integer  "unit_model_id"
+  create_table "rooms", :force => true do |t|
     t.string   "room_no"
-    t.float    "area"
+    t.integer  "area"
+    t.integer  "room_model_id"
+    t.integer  "unit_id"
+    t.integer  "building_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "units", :force => true do |t|
+    t.integer  "unit_model_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "title"
+    t.string   "desc"
   end
 
 end

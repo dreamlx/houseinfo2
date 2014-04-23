@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  room_no: MyString
+  area: 1
+  room_model_id: 1
+  unit_id: 1
+  building_id: 1
+
+two:
+  room_no: MyString
+  area: 1
+  room_model_id: 1
+  unit_id: 1
+  building_id: 1

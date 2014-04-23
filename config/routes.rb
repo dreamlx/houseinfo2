@@ -49,9 +49,10 @@ Houseinfo2::Application.routes.draw do
   #     resources :products
   #   end
   namespace :api do
-    resources :builders
+    resources :buildings
     resources :units
-    resources :unit_models
+    resources :room_models
+    resources :rooms
   end
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
