@@ -1,4 +1,5 @@
 ActiveAdmin.register AdminUser do
+  menu false
   index do
     selectable_column
     id_column

@@ -7,6 +7,7 @@ child :units do |unit|
     attribute :id 
     attribute :area
     attribute :room_no
+    attribute :state
     child :room_model do |room|
       attribute :title
     end

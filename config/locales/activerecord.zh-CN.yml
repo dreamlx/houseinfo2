@@ -1,0 +1,47 @@
+# coding: utf-8
+zh-CN:
+  sold_out: 售出
+  on_sale: 在售
+
+  activerecord:
+    models:
+      admin_user: 用户
+      building: 大楼
+      unit: 单元
+      room_model: 房型
+      room: 房间号
+    attributes:
+      admin_user:
+        email: 邮箱
+        password: 口令
+        password_confirmation: 再次输入口令 
+        remember_me: 记住我
+      unit:
+        title: 单元名称
+        desc: 描述
+        rooms: 房间号
+        created_at: 创建时间
+        updated_at: 更新时间
+      room:
+        room_no: 房间号
+        area: 面积
+        state: 状态
+        building: 楼号
+        room_model: 房型
+        unit: 单元名称
+        created_at: 创建时间
+        updated_at: 更新时间
+      building:
+        title: 楼号
+        code: 内部编码
+        desc: 描述
+        rooms: 房间号
+        units: 单元名称
+        created_at: 创建时间
+        updated_at: 更新时间
+      room_model:
+        title: 房型名称
+        desc: 描述
+        rooms: 房间号
+        created_at: 创建时间
+        updated_at: 更新时间

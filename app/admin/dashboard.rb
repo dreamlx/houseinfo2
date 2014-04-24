@@ -1,7 +1,9 @@
 ActiveAdmin.register_page "Dashboard" do
 
   menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
-
+controller do
+  skip_before_filter :authorize_user!
+end
   content title: proc{ I18n.t("active_admin.dashboard") } do
     div class: "blank_slate_container", id: "dashboard_default_message" do
       span class: "blank_slate" do
@@ -9,9 +11,7 @@ ActiveAdmin.register_page "Dashboard" do
         small I18n.t("active_admin.dashboard_welcome.call_to_action")
       end
     end
-controller do
-  skip_before_filter :authenticate_user!
-end
+
     # Here is an example of a simple dashboard with columns and panels.
     #
     # columns do
