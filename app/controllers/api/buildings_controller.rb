@@ -12,7 +12,6 @@ class Api::BuildingsController < ApplicationController
   # GET /builds/1.json
   def show
     @building = Building.find(params[:id])
-    render '/api/buildings/show'
   end
 
   # GET /builds/new
