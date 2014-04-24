@@ -7,6 +7,8 @@ child :units do |unit|
     attribute :id 
     attribute :area
     attribute :room_no
-    child(:room_model){ |r| r.title }
+    child :room_model do |room|
+      attribute :title
+    end
   end
 end
