@@ -13,6 +13,7 @@ group :production do
 end
 # Gemfile
 gem 'rabl'
+gem 'jbuilder'
 # Also add either `oj` or `yajl-ruby` as the JSON parser
 gem 'oj'
 
