@@ -34,7 +34,7 @@ class Api::BuildingsController < ApplicationController
   # POST /builds.json
   def create
     @building = Building.new(params[:building])
-
+    @rooms = @building.rooms
     respond_to do |format|
       if @building.save
         format.html { redirect_to @building, notice: 'Build was successfully created.' }
