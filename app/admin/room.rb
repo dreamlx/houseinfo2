@@ -1,5 +1,6 @@
 # coding: utf-8
 ActiveAdmin.register Room do
+  index :download_links => false
   index do
     column :id
     column :room_no

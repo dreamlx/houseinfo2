@@ -1,5 +1,6 @@
 ActiveAdmin.register AdminUser do
   menu false
+  index :download_links => false
   index do
     selectable_column
     id_column

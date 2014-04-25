@@ -1,3 +1,4 @@
+#coding: utf-8
 ActiveAdmin.setup do |config|
 
   # == Site Title
@@ -5,7 +6,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Houseinfo2"
+  config.site_title = "后台销控"
 
   config.skip_before_filter :authorize_user!
   # Set the link url for the title. For example, to take
@@ -213,7 +214,7 @@ ActiveAdmin.setup do |config|
   #   config.namespace :admin do |admin|
   #
   #     # Disable the links entirely
-  #     admin.download_links = false
+      download_links = false
   #
   #     # Only show XML & PDF options
   #     admin.download_links = [:xml, :pdf]
