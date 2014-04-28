@@ -1,5 +1,6 @@
 # coding: utf-8
 ActiveAdmin.register Room do
+  actions :all, except: [:show] 
   index :download_links => false
   index do
     column :id
@@ -17,7 +18,19 @@ ActiveAdmin.register Room do
     end
     default_actions
   end
-  
+
+  form do |f|
+      f.inputs "Details" do
+        f.input :room_no
+        f.input :area
+        f.input :building
+        f.input :unit
+        f.input :room_model
+      end
+      f.actions
+  end
+
+
   member_action :cancel, :method => :put do
     item = Room.find(params[:id])
     item.unsold
