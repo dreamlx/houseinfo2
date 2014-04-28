@@ -1,9 +1,9 @@
 # coding: utf-8
 ActiveAdmin.register Room do
   actions :all, except: [:show] 
-  index :download_links => false
-  index do
-    column :id
+  #index :download_links => false
+
+  index :download_links => false do
     column :room_no
     column :area
     column :building
@@ -26,6 +26,7 @@ ActiveAdmin.register Room do
         f.input :building
         f.input :unit
         f.input :room_model
+        f.input :state, as: :radio, collection: [['在售', 'on_sale'], ['售出', 'sold_out']]
       end
       f.actions
   end
