@@ -5,12 +5,8 @@ gem 'state_machine'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'yaml_db'
-group :development, :test do
-  gem 'pg'
-end
-group :production do
-  gem 'pg'
-end
+gem 'pg'
+
 # Gemfile
 gem 'rabl'
 gem 'jbuilder'
