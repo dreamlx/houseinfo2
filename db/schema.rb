@@ -62,13 +62,13 @@ ActiveRecord::Schema.define(:version => 20140504064421) do
   end
 
   create_table "rooms", :force => true do |t|
-    t.integer  "room_no",       :limit => 255
     t.integer  "room_model_id"
     t.integer  "unit_id"
     t.integer  "building_id"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "state"
+    t.integer  "room_no"
     t.float    "area"
   end
 
