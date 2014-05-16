@@ -26,7 +26,6 @@ ActiveAdmin.register Order do
   member_action :confirm, :method => :put do
     order = Order.find(params[:id])
     order.confirm
-    debugger
     Order.where(:room_id => order.room.id).each do |o|
       if o.state == "in_process"
         o.unconfirm
