@@ -199,3 +199,6 @@ zh-CN:
   activerecord:
     errors:
       <<: *errors
+  order: "订单"
+  confirm: "确认"
+  unconfirm: "否决"

@@ -1,20 +1,22 @@
 # coding: utf-8
 ActiveAdmin.register Room do
-  actions :all, except: [:show] 
+  # actions :all, except: [:show] 
   #index :download_links => false
 
   index :download_links => false do
+    column :id
     column :room_no
     column :area
     column :building
     column :unit
     column :room_model
     column :state do |room|
-      if room.state == 'on_sale'
-        link_to t(room.state||'在售'), sale_admin_room_path(room), :method => :put,:class => 'button'
-      else
-        link_to t(room.state||'售出'), cancel_admin_room_path(room), :method => :put,:class => 'button'
-      end
+      status_tag(room.state)
+      # if room.state == 'on_sale'
+      #   link_to t(room.state||'在售'), sale_admin_room_path(room), :method => :put,:class => 'button'
+      # else
+      #   link_to t(room.state||'售出'), cancel_admin_room_path(room), :method => :put,:class => 'button'
+      # end
     end
     default_actions
   end
@@ -42,5 +44,13 @@ ActiveAdmin.register Room do
     item = Room.find(params[:id])
     item.sold
     redirect_to  admin_rooms_path
-  end  
+  end
+
+  member_action :unconfirmall, :method => :put do
+    item = Room.find(params[:id])
+    item.orders.each do |order|
+      order.unconfirm
+    end
+    redirect_to  admin_rooms_path
+  end
 end

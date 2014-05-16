@@ -3,9 +3,13 @@ class Room < ActiveRecord::Base
   belongs_to :building
   belongs_to :room_model
   belongs_to :unit
-  def title
-    self.room_no
-  end
+  has_many   :order
+
+  # Following commment block make a error:ActionView::Template::Error (undefined method `empty?' for 1404:Fixnum):
+  # def title
+  #   self.room_no
+  # end
+
   state_machine :initial => :on_sale do
     event :sold do
       transition :on_sale => :sold_out

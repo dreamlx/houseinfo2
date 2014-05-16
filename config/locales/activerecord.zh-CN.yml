@@ -9,7 +9,7 @@ zh-CN:
       building: 大楼
       unit: 单元
       room_model: 房型
-      room: 房间号
+      room: 房间
     attributes:
       admin_user:
         email: 邮箱
@@ -19,11 +19,11 @@ zh-CN:
       unit:
         title: 单元名称
         desc: 描述
-        rooms: 房间号
+        rooms: 房间
         created_at: 创建时间
         updated_at: 更新时间
       room:
-        room_no: 房间号
+        room_no: 房间
         area: 面积
         state: 状态
         building: 楼号
@@ -35,13 +35,13 @@ zh-CN:
         title: 楼号
         code: 内部编码
         desc: 描述
-        rooms: 房间号
+        rooms: 房间
         units: 单元名称
         created_at: 创建时间
         updated_at: 更新时间
       room_model:
         title: 房型名称
         desc: 描述
-        rooms: 房间号
+        rooms: 房间
         created_at: 创建时间
         updated_at: 更新时间

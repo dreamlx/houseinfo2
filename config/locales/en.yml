@@ -5,3 +5,5 @@ en:
   hello: "Hello world"
   active_admin:
     powered_by: ""
+  confirm: "confirm"
+  unconfirm: "unconfirm"

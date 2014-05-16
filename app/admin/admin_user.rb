@@ -1,7 +1,6 @@
-ActiveAdmin.register AdminUser do
-  menu false
-  index :download_links => false
-  index do
+ActiveAdmin.register AdminUser do 
+  # menu false
+  index :download_links => false do
     selectable_column
     id_column
     column :email
