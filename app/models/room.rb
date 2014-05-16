@@ -1,9 +1,9 @@
 class Room < ActiveRecord::Base
-  attr_accessible :area, :building_id, :room_model_id, :room_no, :unit_id, :state
+  attr_accessible :area, :building_id, :room_model_id, :room_no, :unit_id, :state, :orders
   belongs_to :building
   belongs_to :room_model
   belongs_to :unit
-  has_many   :order
+  has_many   :orders
 
   # Following commment block make a error:ActionView::Template::Error (undefined method `empty?' for 1404:Fixnum):
   # def title

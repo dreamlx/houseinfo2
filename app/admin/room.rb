@@ -33,6 +33,22 @@ ActiveAdmin.register Room do
       f.actions
   end
 
+  show do |room|
+    attributes_table do
+      row :room_no
+      row :area
+      row :building
+      row :unit
+      row :room_model
+      row :state
+    end
+    panel "Orders List:" do
+      table_for(room.orders)  do |order|
+        order.column :id
+        order.column :state        
+      end
+    end
+  end
 
   member_action :cancel, :method => :put do
     item = Room.find(params[:id])
@@ -43,14 +59,6 @@ ActiveAdmin.register Room do
   member_action :sale, :method => :put do
     item = Room.find(params[:id])
     item.sold
-    redirect_to  admin_rooms_path
-  end
-
-  member_action :unconfirmall, :method => :put do
-    item = Room.find(params[:id])
-    item.orders.each do |order|
-      order.unconfirm
-    end
     redirect_to  admin_rooms_path
   end
 end
