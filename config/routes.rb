@@ -52,6 +52,8 @@ Houseinfo2::Application.routes.draw do
     resources :buildings
     resources :units
     resources :room_models
+    resources :orders
+    resources :admin_users
     resources :rooms do
       resources :orders
     end

@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
   belongs_to :room
-  attr_accessible :state, :room, :room_id, :orders
+  attr_accessible :state, :room, :room_id, :title
   accepts_nested_attributes_for :room
   # accepts_nested_attributes_for :room
   state_machine :initial => :in_process do #定义初始状态为in_process

@@ -1,0 +1,1 @@
+attributes :state, :room, :title
