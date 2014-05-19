@@ -5,6 +5,10 @@ class Room < ActiveRecord::Base
   belongs_to :unit
   has_many   :orders
 
+  def title
+    self.room_no
+  end
+
   # Following commment block make a error:ActionView::Template::Error (undefined method `empty?' for 1404:Fixnum):
   # def title
   #   self.room_no
