@@ -6,7 +6,7 @@ class Room < ActiveRecord::Base
   has_many   :orders
 
   def title
-    self.room_no
+    self.room_no.to_s
   end
 
   # Following commment block make a error:ActionView::Template::Error (undefined method `empty?' for 1404:Fixnum):

@@ -1,6 +1,6 @@
 ActiveAdmin.register Order do  
   menu :label => proc{ I18n.t("order") }
-  belongs_to :room
+
 
   index do
     selectable_column

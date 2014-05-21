@@ -1,1 +1,1 @@
-attributes :state, :room, :title
+attributes :state, :room, :title, :admin_user

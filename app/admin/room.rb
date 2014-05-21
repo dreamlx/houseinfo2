@@ -20,7 +20,7 @@ ActiveAdmin.register Room do
     end
     default_actions
   end
-
+  
   form do |f|
       f.inputs "Details" do
         f.input :room_no
