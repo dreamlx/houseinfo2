@@ -6,6 +6,7 @@ gem 'state_machine'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 # gem 'yaml_db'
 gem 'pg'
+gem 'cancan'
 
 # Gemfile
 gem 'rabl'
