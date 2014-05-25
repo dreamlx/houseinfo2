@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
+  delegate :building, :to => :room, :allow_nil => true
   belongs_to :room
   belongs_to :admin_user, foreign_key: :user_id
   attr_accessible :state, :room, :room_id, :title, :user_id
