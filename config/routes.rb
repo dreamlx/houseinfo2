@@ -58,6 +58,8 @@ Houseinfo2::Application.routes.draw do
         put :unconfirm
       end
     end
+    
+    resources :tokens
     resources :admin_users
     resources :rooms do
       resources :orders
