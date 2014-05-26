@@ -1,14 +1,16 @@
 ActiveAdmin.register Order do  
   menu :label => proc{ I18n.t("order") }
 
-
+  #filter :"room" , :as => :select, :collection => Room.order(:room_no).map(&:room_no)
+  filter :state, as: :select, :collection => [['in_process', 'in_process'], ['denied', 'denied'], ['complete', 'complete']]
+  filter :admin_user
   index do
     selectable_column
     column :id
-    column :state do |order|
-      status_tag(order.state)
-      # link_to t(order.state), unconfirm_admin_order_path(order), :method => :put,:class => 'button'
+    column :staff do |order|
+      order.admin_user.email unless order.admin_user.nil?
     end
+    column :building, :sortable => false
     column :room
     column :confirm do |order|
       if order.state == "in_process"
@@ -20,7 +22,10 @@ ActiveAdmin.register Order do
         link_to t('unconfirm'), unconfirm_admin_order_path(order), :method => :put,:class => 'button' 
       end
     end
-
+    column(:state, :sortable)  do |order|
+      status_tag(order.state)
+      # link_to t(order.state), unconfirm_admin_order_path(order), :method => :put,:class => 'button'
+    end
     default_actions
   end
 
