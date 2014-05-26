@@ -24,6 +24,8 @@ ActiveAdmin.register Order do
     default_actions
   end
 
+  # order: in_process => complete   confirm
+  # room:  orderd     => sold_out   sold
   member_action :confirm, :method => :put do
     order = Order.find(params[:id])
     order.confirm
@@ -36,10 +38,12 @@ ActiveAdmin.register Order do
     redirect_to  admin_orders_path
   end
 
+  # order: in_process => denied     unconfirm
+  # room:  ordered    => on_sale    unorder
   member_action :unconfirm, :method => :put do
-    item = Order.find(params[:id])
-    item.unconfirm
-    item.room.unsold
+    order = Order.find(params[:id])
+    order.unconfirm
+    order.room.unorder
     redirect_to  admin_orders_path
   end
 end

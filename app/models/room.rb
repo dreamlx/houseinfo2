@@ -15,10 +15,22 @@ class Room < ActiveRecord::Base
   # end
 
   state_machine :initial => :on_sale do
-    event :sold do
-      transition :on_sale => :sold_out
+    # order a room
+    event :order do
+      transition :on_sale => :ordered
     end
 
+    # unorder a room
+    event :unorder do
+      transition :ordered => :on_sale
+    end
+
+    # confirm a order
+    event :sold do
+      transition :ordered => :sold_out
+    end
+
+    # recycle a room
     event :unsold do
       transition :sold_out => :on_sale
     end

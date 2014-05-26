@@ -5,8 +5,10 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :room
 
   validates :room_id, :uniqueness => {:scope => :user_id}  
+
+  # when create a order, the state of room associated turn to orderd
+  after_create :change_the_room_state
   
-  # accepts_nested_attributes_for :room
   state_machine :initial => :in_process do #定义初始状态为in_process
     event :confirm do #定义confirm事件，让状态从in_process到complete
       transition :in_process => :complete
@@ -16,4 +18,10 @@ class Order < ActiveRecord::Base
       transition :in_process => :denied
     end
   end
+
+  private
+    #change the room state after ordered
+    def change_the_room_state
+      room.order
+    end
 end
