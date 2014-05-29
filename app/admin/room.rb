@@ -2,9 +2,15 @@
 ActiveAdmin.register Room do
   # actions :all, except: [:show] 
   #index :download_links => false
+  filter :state, as: :select, :collection => [['on_sale', 'on_sale'], ['sold_out', 'sold_out'], ['ordered', 'ordered']]
+  filter :room_no
+  filter :area
+  filter :building
+  filter :unit
+  filter :room_model
 
   index :download_links => false do
-    column :id
+    #column :id
     column :room_no
     column :area
     column :building
@@ -18,6 +24,13 @@ ActiveAdmin.register Room do
       #   link_to t(room.state||'售出'), cancel_admin_room_path(room), :method => :put,:class => 'button'
       # end
     end
+    column :sale do |room|
+      link_to '售出', sale_admin_room_path(room), :method => :put,:class => 'button' if room.state == 'ordered'
+    end
+
+    column :cancel do |room|
+      link_to '放弃', cancel_admin_room_path(room), :method => :put,:class => 'button' if room.state == 'sold_out'
+    end
     default_actions
   end
   
@@ -28,7 +41,7 @@ ActiveAdmin.register Room do
         f.input :building
         f.input :unit
         f.input :room_model
-        f.input :state, as: :radio, collection: [['在售', 'on_sale'], ['售出', 'sold_out']]
+        f.input :state, as: :radio, collection: [['在售', 'on_sale'], ['预订', 'ordered'], ['售出', 'sold_out']]
       end
       f.actions
   end
@@ -53,6 +66,9 @@ ActiveAdmin.register Room do
   member_action :cancel, :method => :put do
     item = Room.find(params[:id])
     item.unsold
+    item.orders.each do |o|
+      o.delete
+    end
     redirect_to  admin_rooms_path
   end
 
