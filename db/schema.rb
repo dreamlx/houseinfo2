@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140525063950) do
+ActiveRecord::Schema.define(:version => 20140530090243) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -84,9 +84,8 @@ ActiveRecord::Schema.define(:version => 20140525063950) do
   end
 
   create_table "units", :force => true do |t|
-    t.integer  "unit_model_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "title"
     t.string   "desc"
   end
