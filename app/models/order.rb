@@ -5,7 +5,9 @@ class Order < ActiveRecord::Base
   attr_accessible :state, :room, :room_id, :title, :user_id
   accepts_nested_attributes_for :room
 
-  validates :room_id, :uniqueness => {:scope => :user_id}  
+  validates :room_id, :uniqueness => {:scope => :user_id}
+  validates :room, :presence => true
+  validates :admin_user, :presence => true
 
   # when create a order, the state of room associated turn to orderd
   after_create :change_the_room_state
@@ -15,7 +17,7 @@ class Order < ActiveRecord::Base
       transition :in_process => :complete
     end
     
-    event :unconfirm do #定义unconfirm事件，让状态从in_process到Failed
+    event :deny do #定义deny事件，让状态从in_process到denied
       transition :in_process => :denied
     end
   end

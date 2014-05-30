@@ -2,7 +2,7 @@
 ActiveAdmin.register Room do
   # actions :all, except: [:show] 
   #index :download_links => false
-  filter :state, as: :select, :collection => [['on_sale', 'on_sale'], ['sold_out', 'sold_out'], ['ordered', 'ordered']]
+  filter :state, as: :select, :collection => [['在售', 'on_sale'], ['售出', 'sold_out'], ['预订', 'ordered']]
   filter :room_no
   filter :area
   filter :building
@@ -10,42 +10,35 @@ ActiveAdmin.register Room do
   filter :room_model
 
   index :download_links => false do
-    #column :id
     column :room_no
     column :area
     column :building
     column :unit
     column :room_model
     column :state do |room|
-      status_tag(room.state)
-      # if room.state == 'on_sale'
-      #   link_to t(room.state||'在售'), sale_admin_room_path(room), :method => :put,:class => 'button'
-      # else
-      #   link_to t(room.state||'售出'), cancel_admin_room_path(room), :method => :put,:class => 'button'
-      # end
-    end
-    column :sale do |room|
-      link_to '售出', sale_admin_room_path(room), :method => :put,:class => 'button' if room.state == 'ordered'
-    end
-
-    column :cancel do |room|
-      link_to '放弃', cancel_admin_room_path(room), :method => :put,:class => 'button' if room.state == 'sold_out'
+      if room.state == 'sold_out' || room.state == 'ordered'
+        status_tag(t(room.state), :ok)
+      else
+        status_tag(t(room.state))
+      end
     end
     default_actions
   end
   
+  # page of new and edit
   form do |f|
-      f.inputs "Details" do
+      f.inputs t('Details') do
         f.input :room_no
         f.input :area
         f.input :building
         f.input :unit
         f.input :room_model
-        f.input :state, as: :radio, collection: [['在售', 'on_sale'], ['预订', 'ordered'], ['售出', 'sold_out']]
+        f.input :state, as: :radio, collection: [[t('on_sale'), 'on_sale'], [t('orderd'), 'ordered'], [t('sold_out'), 'sold_out']]
       end
       f.actions
   end
 
+  # page of show
   show do |room|
     attributes_table do
       row :room_no
@@ -53,9 +46,11 @@ ActiveAdmin.register Room do
       row :building
       row :unit
       row :room_model
-      row :state
+      row :state do |room|
+        t(room.state)
+      end
     end
-    panel "Orders List:" do
+    panel t('orderslist') do
       table_for(room.orders)  do |order|
         order.column :id
         order.column :state        
