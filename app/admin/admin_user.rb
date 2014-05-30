@@ -11,10 +11,11 @@ ActiveAdmin.register AdminUser do
     actions
   end
 
-  filter :email
-  filter :current_sign_in_at
-  filter :sign_in_count
-  filter :created_at
+  # filter :email
+  # filter :current_sign_in_at
+  # filter :sign_in_count
+  # filter :created_at
+  config.filters = false
 
   form do |f|
     f.inputs "Admin Details" do
