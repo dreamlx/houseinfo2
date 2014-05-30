@@ -2,6 +2,8 @@
 zh-CN:
   sold_out: 售出
   on_sale: 在售
+  orderd: 预订
+  Details: 详情
 
   activerecord:
     models:
@@ -10,6 +12,7 @@ zh-CN:
       unit: 单元
       room_model: 房型
       room: 房间
+      order: 订单
     attributes:
       admin_user:
         email: 邮箱
@@ -31,6 +34,7 @@ zh-CN:
         unit: 单元名称
         created_at: 创建时间
         updated_at: 更新时间
+        orderslist: 订单列表
       building:
         title: 楼号
         code: 内部编码
@@ -45,3 +49,22 @@ zh-CN:
         rooms: 房间
         created_at: 创建时间
         updated_at: 更新时间
+      order:
+        title: 楼号
+        staff: 员工
+        building: 大楼
+        room: 房间
+        confirm: 确认
+        deny: 否决
+        state: 状态
+        admin_user: 用户
+        in_process: 进行中
+        complete: 完成
+        denied: 否决
+      admin_user:
+        name: 用户名
+        current_sign_in_at: 登录时间
+        sign_in_count: 登录次数
+        created_at: 创建时间
+        email: 邮箱
+        encrypted_password: 加密密码

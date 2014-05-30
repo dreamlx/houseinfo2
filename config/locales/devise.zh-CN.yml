@@ -1,7 +1,7 @@
 # Chinese (China) translations for Devise(3.2.2)
 # by Kenrick-Zhou (https://github.com/Kenrick-Zhou)
 # https://gist.github.com/Kenrick-Zhou/7909822
- 
+
 zh-CN:
   devise:
     confirmations:
