@@ -4,7 +4,7 @@ gem 'rails', '3.2.13'
 gem 'state_machine'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-# gem 'yaml_db'
+gem 'yaml_db'
 gem 'pg'
 gem 'cancan'
 
