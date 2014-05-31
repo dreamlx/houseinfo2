@@ -47,7 +47,11 @@ ActiveAdmin.register Room do
       row :unit
       row :room_model
       row :state do |room|
-        t(room.state)
+        if room.state == 'sold_out' || room.state == 'ordered'
+          status_tag(t(room.state), :ok)
+        else
+          status_tag(t(room.state))
+        end
       end
     end
     panel t('orderslist') do
