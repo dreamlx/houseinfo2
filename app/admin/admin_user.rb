@@ -3,8 +3,11 @@ ActiveAdmin.register AdminUser do
   index :download_links => false do
     selectable_column
     id_column
-    column :email
     column :name
+    column :email
+    column :role do |user|
+      t(user.role)
+    end
     column :current_sign_in_at
     column :sign_in_count
     column :created_at
@@ -23,8 +26,23 @@ ActiveAdmin.register AdminUser do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :role, :as => :select, :collection => [[t('manager'), 'manager'], [t('staff'), 'staff']]
     end
     f.actions
+  end
+
+  show do |user|
+    attributes_table do
+      row :id
+      row :name
+      row :email
+      row :role do |user|
+        t(user.role)
+      end
+      row :current_sign_in_at
+      row :sign_in_count
+      row :created_at
+    end
   end
 
 end

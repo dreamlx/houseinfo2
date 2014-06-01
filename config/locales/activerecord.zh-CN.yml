@@ -4,6 +4,8 @@ zh-CN:
   on_sale: 在售
   orderd: 预订
   Details: 详情
+  manager: 经理
+  staff: 员工
 
   activerecord:
     models:
@@ -63,6 +65,7 @@ zh-CN:
         denied: 否决
       admin_user:
         name: 用户名
+        role: 角色
         current_sign_in_at: 登录时间
         sign_in_count: 登录次数
         created_at: 创建时间

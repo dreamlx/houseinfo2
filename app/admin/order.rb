@@ -2,6 +2,7 @@
 ActiveAdmin.register Order do  
   menu :label => proc{ I18n.t("order") }
 
+
   #filter :"room" , :as => :select, :collection => Room.order(:room_no).map(&:room_no)
   filter :state, as: :select, :collection => [['进行中', 'in_process'], ['否决', 'denied'], ['完成', 'complete']]
   filter :admin_user
@@ -15,14 +16,16 @@ ActiveAdmin.register Order do
     end
     column :building, :sortable => false
     column :room
-    column :confirm do |order|
-      if order.state == "in_process"
-        link_to t('confirm'), confirm_order_admin_order_path(order), :method => :put,:class => 'button' 
+    if can? :destroy, Order
+      column :confirm do |order|
+        if order.state == "in_process"
+          link_to t('confirm'), confirm_order_admin_order_path(order), :method => :put,:class => 'button' 
+        end
       end
-    end
-    column :deny do |order|
-      if order.state == "in_process"
-        link_to t('deny'), deny_order_admin_order_path(order), :method => :put,:class => 'button' 
+      column :deny do |order|
+        if order.state == "in_process"
+          link_to t('deny'), deny_order_admin_order_path(order), :method => :put,:class => 'button' 
+        end
       end
     end
     column(:state, :sortable)  do |order|

@@ -1,7 +1,6 @@
 # coding: utf-8
 ActiveAdmin.register Room do
   # actions :all, except: [:show] 
-  #index :download_links => false
   filter :state, as: :select, :collection => [['在售', 'on_sale'], ['售出', 'sold_out'], ['预订', 'ordered']]
   filter :room_no
   filter :area
@@ -22,7 +21,7 @@ ActiveAdmin.register Room do
         status_tag(t(room.state))
       end
     end
-    default_actions
+    actions
   end
   
   # page of new and edit
