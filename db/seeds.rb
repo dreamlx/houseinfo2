@@ -6,5 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 AdminUser.destroy_all
-AdminUser.create!(email: 'admin@gmail.com', password: '11111111')
+AdminUser.create!(name: 'admin', email: 'admin@gmail.com', password: '11111111', role: 'manager')
 Room.update_all(state: 'on_sale')
