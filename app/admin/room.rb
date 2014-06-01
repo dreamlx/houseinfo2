@@ -56,7 +56,10 @@ ActiveAdmin.register Room do
     panel t('orderslist') do
       table_for(room.orders)  do |order|
         order.column :id
-        order.column :state        
+        order.column :state     
+        order.column :user_id do |order|
+          AdminUser.find(order.user_id).name
+        end
       end
     end
   end
