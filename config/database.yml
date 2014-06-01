@@ -29,5 +29,7 @@ production:
   encoding: unicode
   database: houseinfo_production
   pool: 5
+  host: localhost
+  port: 5432
   username: houseinfo
   password:
