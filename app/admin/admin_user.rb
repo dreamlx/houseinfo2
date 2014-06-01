@@ -1,5 +1,5 @@
 ActiveAdmin.register AdminUser do 
-  # menu false
+
   index :download_links => false do
     selectable_column
     id_column
@@ -26,7 +26,9 @@ ActiveAdmin.register AdminUser do
       f.input :email
       f.input :password
       f.input :password_confirmation
-      f.input :role, :as => :select, :collection => [[t('manager'), 'manager'], [t('staff'), 'staff']]
+      if can? :destroy, AdminUser
+        f.input :role, :as => :select, :collection => [[t('manager'), 'manager'], [t('staff'), 'staff']]
+      end
     end
     f.actions
   end

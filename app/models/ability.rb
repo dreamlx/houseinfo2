@@ -20,8 +20,8 @@ class Ability
       can :read, RoomModel
       can :read, Room      
       can [:read, :create], Order
-      can :read, AdminUser
-      can :manage, AdminUser, :id => user.id
+      # can :read, AdminUser
+      can [:read, :update], AdminUser, :id => user.id
     end
   end
 
