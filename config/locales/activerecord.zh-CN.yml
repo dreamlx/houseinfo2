@@ -18,8 +18,8 @@ zh-CN:
     attributes:
       admin_user:
         email: 邮箱
-        password: 口令
-        password_confirmation: 再次输入口令 
+        password: 密码
+        password_confirmation: 再次输入密码 
         remember_me: 记住我
       unit:
         title: 单元名称
@@ -71,3 +71,5 @@ zh-CN:
         created_at: 创建时间
         email: 邮箱
         encrypted_password: 加密密码
+        password: 密码
+        password_confirmation: 再次输入密码
