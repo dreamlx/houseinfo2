@@ -56,8 +56,8 @@ ActiveAdmin.register Order do
     Order.where(:room_id => order.room.id).each do |o|
       if o.state == "in_process" and o.id != order.id
         # o.delete
-        # Maybe unorder the other orders is better
-        o.unorder
+        # Maybe deny the other orders is better
+        o.deny
       end
     end
     redirect_to  admin_orders_path
