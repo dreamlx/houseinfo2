@@ -1,5 +1,2 @@
 == House info
 
-rake db:data:load
-
-you need run this rake task before remove_unit_model_id_from_unit.

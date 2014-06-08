@@ -40,7 +40,7 @@ ActiveAdmin.register Order do
   # page of new and edit
   form do |f|
     f.inputs t('order') do
-      f.input :title
+      # f.input :title
       f.input :room
       f.input :admin_user
     end
