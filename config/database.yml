@@ -21,7 +21,7 @@ test:
   encoding: unicode
   database: houseinfo2
   pool: 5
-  username: houseinfo
+  username: postgres
   password:
 
 production:
@@ -29,5 +29,5 @@ production:
   encoding: unicode
   database: houseinfo_production
   pool: 5
-  username: houseinfo
+  username: postgres
   password:
